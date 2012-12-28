@@ -52,5 +52,7 @@ int main(int argc, char * argv[]) {
         }
         total_write += write_pos;
     }
+    close(fd_random);
+    close(filegen);
     return 0;
 }
