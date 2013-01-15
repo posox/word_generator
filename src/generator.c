@@ -9,6 +9,7 @@
 int main(int argc, char * argv[]) {
     if (argc != 3) {
         fprintf(stderr, "%s: Incorrect parameter, use %s <file size in KiB> <output path>\n", argv[0], argv[0]);
+        return -1;
     }
 
     int fd_random = open("/dev/urandom", O_RDONLY);
@@ -27,8 +28,10 @@ int main(int argc, char * argv[]) {
         int words = 0;
         int i;
         for (i = 0; i < BUFFER_SIZE; i++) {
+            read_buf[i] &= 0x7f;
+            read_buf[i] |= 0x40;
             if ((read_buf[i] >= 'a' && read_buf[i] <= 'z')
-                    || (read_buf[i] >= 'A' && read_buf[i] <= 'Z')) {
+             || (read_buf[i] >= 'A' && read_buf[i] <= 'Z')) {
                 write_buf[write_pos] = read_buf[i];
                 write_pos++;
                 word_pos++;

@@ -1,3 +1,3 @@
-CFLAGS+=-O2 -pipe -march=native
+CFLAGS+=-O3 -pipe -march=native
 VPATH=src
 all: generator
