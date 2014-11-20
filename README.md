@@ -1,8 +1,8 @@
 Word generator
 ==============
 
-Easy word generator from UNIX
+Easy word generator
 
 Build: make
 
-Run: ./generator \<file size in Kib\> \<output file\>
+Run: `./generator <file size in Kib> <output file>`
